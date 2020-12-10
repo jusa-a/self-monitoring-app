@@ -1,0 +1,21 @@
+<%- include('./partials/header.ejs') %>
+<%- include('./partials/navbar.ejs', logged) %>
+<div class="reporting container col-md-5 text-center">
+    <h3 class="h3 mb-3 font-weight-normal">Reporting</h3>
+    <%- include('./partials/notif.ejs', {notif: data.notif}) %>
+    <div class="btn-group">
+        <a href="/behavior/reporting/morning" class="btn btn-outline-secondary 
+        <% if (data.type === 'morning'){ %> active <% } %>">Morning</a>
+        <a href="/behavior/reporting/evening" class="btn btn-outline-secondary 
+        <% if (data.type === 'evening'){ %> active <% } %>">Evening</a>
+    </div>
+    <div class="text-left">
+        <% if (data.type === 'morning'){ %>
+        <%-include('./partials/morningReport.ejs', data) %>
+        <% } %>
+        <% if (data.type === 'evening'){ %>
+        <%-include('./partials/eveningReport.ejs', data) %>
+        <% } %>
+    </div>
+</div>
+<%-include('./partials/footer.ejs') %>

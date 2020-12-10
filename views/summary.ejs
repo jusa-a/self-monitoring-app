@@ -1,0 +1,28 @@
+<%- include('./partials/header.ejs') %>
+<%- include('./partials/navbar.ejs', logged) %>
+<div class="summary container">
+    <h3 class="h3 mb-3 font-weight-normal">Summary</h3>
+    <form class="row justify-content-center" method="POST" action="/behavior/summary">
+        <div class="weekly col-md-4">
+            <h4 class="h4 mb-3 font-weight-normal">Weekly</h4>
+            <div class="">
+                <input type="week" name="week" id="" value="<%= data.week %>" />
+                <button type="submit" class="btn btn-sm btn-secondary">Show</button>
+            </div>
+            <div class="averages">
+                <%- include('./partials/summaryList.ejs', data.weekly) %>
+            </div>
+        </div>
+        <div class="monthly col-md-4">
+            <h4 class="h4 mb-3 font-weight-normal">Monthly</h4>
+            <div class="">
+                <input type="month" name="month" id="" value="<%= data.month %>" />
+                <button type="submit" class="btn btn-sm btn-secondary">Show</button>
+            </div>
+            <div class="averages">
+                <%- include('./partials/summaryList.ejs', data.monthly) %>
+            </div>
+        </div>
+    </form>
+</div>
+<%- include('./partials/footer.ejs') %>

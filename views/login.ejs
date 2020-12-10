@@ -1,0 +1,22 @@
+<%- include('./partials/header.ejs') %>
+<div class="row justify-content-center mb-4 text-center">
+    <form class="form-login col-md-3" method="POST" action="/auth/login">
+        <h3 class="h3 mb-3 mt-5 font-weight-normal">Please login</h3>
+        <%- include('./partials/error.ejs', { errors: data.errors, attribute:'err'}) %>
+        <div class="form-group text-left">
+            <label for="emailInput" class="">Email</label>
+            <input type="email" name="email" class="form-control" id="emailInput" placeholder="name@example.com"
+                autofocus>
+        </div>
+        <div class="form-group text-left">
+            <label for="passwordInput" class="">Password</label>
+            <input type="password" name="password" class="form-control" id="passwordInput" placeholder="******">
+        </div>
+        <button type="submit" class="btn btn-secondary">Login</button>
+    </form>
+</div>
+<div class="row pt-3 justify-content-center">
+    <h6 class="h6 font-weight-normal">Don't have an accout?</h6>
+    <a href="/auth/registration" class="h6 font-weight-normal ml-2"> Register </a>
+</div>
+<%- include('./partials/footer.ejs') %>

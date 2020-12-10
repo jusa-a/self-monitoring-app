@@ -1,0 +1,27 @@
+<form method="POST" action="/behavior/reporting/morning">
+    <div class="form-group">
+        <label for="dateInput">Date</label>
+        <input type="date" name="date" class="form-control" id="dateInput" value="<%= date %>" />
+        <%- include('./error.ejs', { errors: errors, attribute: 'date'}) %>
+    </div>
+    <div class="form-group">
+        <label for="sleepInput">Sleep Duration</label>
+        <input type="number" name="sleepDuration" class="form-control" id="sleepInput" step="0.1"
+            placeholder="e.g., 8.5" value="<%= sleepDuration %>" />
+        <%- include('./error.ejs', { errors: errors, attribute: 'sleepDuration'}) %>
+    </div>
+    <div class="form-group">
+        <label for="sleepRange">Sleep Quality</label>
+        <input type="range" name="sleepQuality" class="custom-range" id="sleepRange" min="1" max="5"
+            value="<%= sleepQuality %>" />
+        <%- include('./error.ejs', { errors: errors, attribute: 'sleepQuality'}) %>
+    </div>
+    <div class="form-group">
+        <label for="moodInput">Generic Mood</label>
+        <input type="range" name="mood" class="custom-range" id="moodInput" min="1" max="5" value="<%= mood %>" />
+        <%- include('./error.ejs', { errors: errors, attribute: 'mood'}) %>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-secondary">Submit</button>
+    </div>
+</form>

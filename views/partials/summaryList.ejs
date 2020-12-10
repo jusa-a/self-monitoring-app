@@ -1,0 +1,14 @@
+<% if (!sd) { %>
+<div class="alert alert-warning" role="alert">
+    no data for the given time-period
+</div>
+<% } else { %>
+<div>
+    <p>Average sleep duration: <%= sd %></p>
+    <p>Average time spent on sports and exercise: <%= et %></p>
+    <p>Average time spent studying: <%= st %></p>
+    <p>Average sleep quality: <%= sq %></p>
+    <p>Average regularity and quality of eating: <%= eq %></p>
+    <p>Average generic mood: <%= md %></p>
+</div>
+<% } %>

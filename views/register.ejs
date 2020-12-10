@@ -1,0 +1,23 @@
+<%- include('./partials/header.ejs') %>
+<div class="row justify-content-center mb-4 text-center">
+    <form class="form-login col-md-3" method="POST" action="/auth/register">
+        <h3 class="h3 mb-3 mt-5 font-weight-normal">Register</h3>
+        <div class="form-group text-left">
+            <label for="emailInput">Email</label>
+            <input type="email" name="email" value="<%= data.email %>" class="form-control" id="emailInput"
+                placeholder="name@example.com" />
+            <%- include('./partials/error.ejs', { errors: data.errors, attribute: 'email'}) %>
+            <%- include('./partials/error.ejs', { errors: data.errors, attribute: 'reserved'}) %>
+        </div>
+        <div class="form-group text-left">
+            <label for="passwordInput">Password</label>
+            <input type="password" name="password" class="form-control" id="passwordInput"
+                placeholder="must have at least 4 characters" />
+            <input type="password" name="verification" class="form-control" placeholder="verify password" />
+            <%- include('./partials/error.ejs', { errors: data.errors, attribute:'password'}) %>
+            <%- include('./partials/error.ejs', { errors: data.errors, attribute: 'match'}) %>
+        </div>
+        <button type="submit" class="btn btn-secondary">Register</button>
+    </form>
+</div>
+<%- include('./partials/footer.ejs') %>

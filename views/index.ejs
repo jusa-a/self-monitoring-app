@@ -1,0 +1,30 @@
+<%- include('./partials/header.ejs') %>
+<%-include('./partials/navbar.ejs', logged) %>
+<div class="container text-center">
+    <h2 class="h3 mb-3 font-weight-normal">Report behavior:</h2>
+    <a href="/behavior/reporting" class="reporting">Report</a>
+    <h2 class="h3 mb-3 font-weight-normal">Show Your Summary:</h2>
+    <a href="/behavior/summary" class="summary">Summary</a>
+    <div class="mood container">
+        <div class="row justify-content-center">
+            <div class="today col-md-4">
+                <h2 class="h2 mb-3 font-weight-normal">Today's Mood</h2>
+                <h3 class="h3 mb-3 font-weight-normal"><%= data.today %></h3>
+            </div>
+            <div class="yesterday col-md-4">
+                <h2 class="h2 mb-3 font-weight-normal">Yesterday's Mood</h2>
+                <h3 class="h3 mb-3 font-weight-normal"><%= data.yesterday %></h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <% if (data.today >= data.yesterday) { %>
+                <p>Mood is going up today!</p>
+                <% } else { %>
+                <p>Mood is going down today. Let's fix it!</p>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('./partials/footer.ejs') %>
