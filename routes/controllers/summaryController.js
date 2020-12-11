@@ -10,7 +10,7 @@ const getData = async (id, request) => {
     const data = {
         userId: id,
         year_w: new Date().getFullYear(), //get current year by default
-        week: new Date().getWeek() - 1 === 0 ? 52 : new Date().getWeek() - 1, //get last week by default
+        week: new Date(new Date().getTime() - 604800000).getWeek(), //get last week by default
         year_m: new Date().getFullYear(), //get current year by default
         month: new Date().getMonth() === 0 ? 12 : new Date().getMonth(), //get last month by default
     };
