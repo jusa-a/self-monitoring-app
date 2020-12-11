@@ -142,8 +142,8 @@ TEST_ENVIRONMENT=true DATABASE_URL=your-database-url deno test --allow-all
 
 ### Database
 
-Expensive calculations such as calculating averages are done in the database
-Database uses a connection pool
+-   Expensive calculations such as calculating averages are done in the database
+-   Database uses a connection pool
 
 ### Testing
 
@@ -158,9 +158,9 @@ Database uses a connection pool
 
 -   Dependencies exported from deps.js
 -   Project launched from app.js in the root folder
-    Configurations in a separate folder (e.g. config)
-    Test configurations separate from production configurations
-    Configurations loaded from environmental variables
+-   Configurations in config folder
+    -   Configurations loaded from environmental variables
+    -   Test configurations separate from production configurations
 
 ```
 self-monitoring-app
