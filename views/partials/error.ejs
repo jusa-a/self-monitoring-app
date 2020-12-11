@@ -1,7 +1,7 @@
 <% if (errors && errors[attribute]) { %>
 <% Object.values(errors[attribute]).forEach((err) => { %>
-<div class="alert alert-danger" role="alert">
+<small style="color: #CD5C5C;" role="alert">
     <%= err %>
-</div>
+</small>
 <% }); %>
 <% } %>

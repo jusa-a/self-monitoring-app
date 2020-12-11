@@ -33,7 +33,7 @@ const checkExisting = async (data) => {
         "evening"
     );
     if (existingMorningReport && existingEveningReport) {
-        return "Morning and evening reports done for today";
+        return "Both reports done for today";
     } else if (existingMorningReport) {
         return "Morning report done for today";
     } else if (existingEveningReport) {

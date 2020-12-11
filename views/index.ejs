@@ -1,27 +1,42 @@
 <%- include('./partials/header.ejs') %>
-<%-include('./partials/navbar.ejs', logged) %>
-<div class="container text-center">
-    <h2 class="h3 mb-3 font-weight-normal">Report behavior:</h2>
-    <a href="/behavior/reporting" class="reporting">Report</a>
-    <h2 class="h3 mb-3 font-weight-normal">Show Your Summary:</h2>
-    <a href="/behavior/summary" class="summary">Summary</a>
-    <div class="mood container">
+<%- include('./partials/navbar.ejs', logged) %>
+<div class="container col-md-5 text-center">
+    <div class="pt-5 pb-4">
+        <h2 class="h3 mb-3 font-weight-normal">Self-Monitoring app</h2>
+        <p>Simple application for self-monitoring! <br>
+            Report and monitor your daily activities.</p>
+    </div>
+    <div class="pt-4 pb-4">
+        <h2 class="h3 mb-3 font-weight-normal">Reporting</h2>
+        <p>Report daily activities and behavior. </p>
+        <a href="/behavior/reporting" class="reporting btn btn-sm btn-outline-secondary rounded-pill mb-2">Report</a>
+    </div>
+    <div class="pt-4 pb-4">
+        <h2 class="h3 mb-3 font-weight-normal">Summary</h2>
+        <p>View the statistics of your reports on <br>
+            a weekly and monthly level.</p>
+        <a href="/behavior/summary" class="summary btn btn-sm btn-outline-secondary rounded-pill mb-2">Summary</a>
+    </div>
+    <div class="mood container pt-4 pb-5 ">
+        <h2 class="h4 mb-3 font-weight-normal">Average mood of all users</h2>
         <div class="row justify-content-center">
-            <div class="today col-md-4">
-                <h2 class="h2 mb-3 font-weight-normal">Today's Mood</h2>
-                <h3 class="h3 mb-3 font-weight-normal"><%= data.today %></h3>
+            <div class="today col-3">
+                <h2 class="h2 mb-1 font-weight-normal"><%= data.today ? data.today : 0 %></h2>
+                <p>Today</p>
             </div>
-            <div class="yesterday col-md-4">
-                <h2 class="h2 mb-3 font-weight-normal">Yesterday's Mood</h2>
-                <h3 class="h3 mb-3 font-weight-normal"><%= data.yesterday %></h3>
+            <div class="yesterday col-3">
+                <h2 class="h2 mb-1 font-weight-normal"><%= data.yesterday ? data.yesterday : 0 %></h2>
+                <p>Yesterday</p>
             </div>
         </div>
-        <div class="row">
+        <div class="row mt-2">
             <div class="col">
-                <% if (data.today >= data.yesterday) { %>
+                <% if (data.today > data.yesterday) { %>
                 <p>Mood is going up today!</p>
-                <% } else { %>
+                <% } else if (data.today < data.yesterday){ %>
                 <p>Mood is going down today. Let's fix it!</p>
+                <% } else { %>
+                <p>Mood has been stable</p>
                 <% } %>
             </div>
         </div>

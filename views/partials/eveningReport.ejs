@@ -1,33 +1,43 @@
 <form method="POST" action="/behavior/reporting/evening">
-    <div class="form-group">
-        <label for="dateInput">Date</label>
-        <input type="date" name="date" class="form-control" id="dateInput" value="<%= date %>" />
+    <div class="form-group form-inline py-1">
+        <label class="col-3 px-0 justify-content-start" for="dateInput">Date</label>
+        <input type="date" name="date" class="form-control ml-3 col-8" id="dateInput" value="<%= date %>" />
         <%- include('./error.ejs', { errors: errors, attribute: 'date'}) %>
     </div>
-    <div class="form-group">
-        <label for="exerciseInput">Time spent on sports and exercise</label>
-        <input type="number" name="exerciseTime" class="form-control" id="exerciseInput" step="0.1"
-            placeholder="e.g., 5.5" value="<%= exerciseTime %>" />
+    <div class="form-group form-inline py-1">
+        <label class="col-6 px-0 justify-content-start" for="exerciseInput">Sports & Exercise</label>
+        <input type="number" name="exerciseTime" class="form-control mx-2 col-3" id="exerciseInput" step="0.1"
+            placeholder="0.0" value="<%= exerciseTime %>" />
+        <small class="text-muted">in hours</small>
         <%- include('./error.ejs', { errors: errors, attribute: 'exerciseTime'}) %>
     </div>
-    <div class="form-group">
-        <label for="studyInput">Time spent studying</label>
-        <input type="number" name="studyTime" class="form-control" id="studyInput" step="0.1" placeholder="e.g., 5.5"
-            value="<%= studyTime %>" />
+    <div class="form-group form-inline py-1">
+        <label class="col-6 px-0 justify-content-start" for="studyInput">Studying</label>
+        <input type="number" name="studyTime" class="form-control mx-2 col-3" id="studyInput" step="0.1"
+            placeholder="0.0" value="<%= studyTime %>" />
+        <small class="text-muted">in hours</small>
         <%- include('./error.ejs', { errors: errors, attribute: 'studyTime'}) %>
     </div>
-    <div class="form-group">
-        <label for="eatInput">Regularity and quality of eating</label>
+    <div class="form-group form-inline py-1">
+        <label for="eatInput">Regularity & Quality of Eating</label>
         <input type="range" name="eatQuality" class="custom-range" id="eatInput" min="1" max="5"
             value="<%= eatQuality %>" />
+        <div class="col d-flex justify-content-between px-0">
+            <small class="col-5 px-1 text-muted text-left">1</small>
+            <small class="col-5 px-1 text-muted text-right">5</small>
+        </div>
         <%- include('./error.ejs', { errors: errors, attribute: 'eatQuality'}) %>
     </div>
-    <div class="form-group">
+    <div class="form-group form-inline py-1">
         <label for="moodInput">Generic Mood</label>
         <input type="range" name="mood" class="custom-range" id="moodInput" min="1" max="5" value="<%= mood %>" />
+        <div class="col d-flex justify-content-between px-0">
+            <small class="col-5 px-1 text-muted text-left">1</small>
+            <small class="col-5 px-1 text-muted text-right">5</small>
+        </div>
         <%- include('./error.ejs', { errors: errors, attribute: 'mood'}) %>
     </div>
-    <div class="text-center">
-        <button type="submit" class="btn btn-secondary">Submit</button>
+    <div class="text-center py-2">
+        <button type="submit" class="btn btn-outline-secondary rounded-pill">Submit</button>
     </div>
 </form>

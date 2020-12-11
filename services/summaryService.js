@@ -2,12 +2,12 @@ import { executeQuery } from "../database/database.js";
 
 const getWeeklyAvg = async (data) => {
     const res = await executeQuery(
-        "SELECT ROUND(AVG(sleep_duration), 2) AS sd, " +
-            "ROUND(AVG(sleep_quality), 2) AS sq, " +
-            "ROUND(AVG(exercise_time), 2) AS et, " +
-            "ROUND(AVG(study_time), 2) AS st, " +
-            "ROUND(AVG(eat_quality), 2) AS eq, " +
-            "ROUND(AVG(mood), 2) AS md " +
+        "SELECT ROUND(AVG(sleep_duration), 1) AS sd, " +
+            "ROUND(AVG(sleep_quality), 1) AS sq, " +
+            "ROUND(AVG(exercise_time), 1) AS et, " +
+            "ROUND(AVG(study_time), 1) AS st, " +
+            "ROUND(AVG(eat_quality), 1) AS eq, " +
+            "ROUND(AVG(mood), 1) AS md " +
             "FROM reports WHERE EXTRACT(WEEK FROM date) = $1 AND EXTRACT(YEAR FROM date) = $2 AND user_id = $3;",
         data.week,
         data.year_w,
@@ -18,12 +18,12 @@ const getWeeklyAvg = async (data) => {
 
 const getMonthlyAvg = async (data) => {
     const res = await executeQuery(
-        "SELECT ROUND(AVG(sleep_duration), 2) AS sd, " +
-            "ROUND(AVG(sleep_quality), 2) AS sq, " +
-            "ROUND(AVG(exercise_time), 2) AS et, " +
-            "ROUND(AVG(study_time), 2) AS st, " +
-            "ROUND(AVG(eat_quality), 2) AS eq, " +
-            "ROUND(AVG(mood), 2) AS md " +
+        "SELECT ROUND(AVG(sleep_duration), 1) AS sd, " +
+            "ROUND(AVG(sleep_quality), 1) AS sq, " +
+            "ROUND(AVG(exercise_time), 1) AS et, " +
+            "ROUND(AVG(study_time), 1) AS st, " +
+            "ROUND(AVG(eat_quality), 1) AS eq, " +
+            "ROUND(AVG(mood), 1) AS md " +
             "FROM reports WHERE EXTRACT(MONTH FROM date) = $1 AND EXTRACT(YEAR FROM date) = $2 AND user_id = $3;",
         data.month,
         data.year_m,
@@ -35,8 +35,8 @@ const getMonthlyAvg = async (data) => {
 const getMood = async () => {
     const res = await executeQuery(
         "SELECT " +
-            "(SELECT ROUND(AVG(mood), 2) FROM reports WHERE date = current_date) AS today,  " +
-            "(SELECT ROUND(AVG(mood), 2) FROM reports WHERE date = current_date - INTEGER '1') as yesterday;"
+            "(SELECT ROUND(AVG(mood), 1) FROM reports WHERE date = current_date) AS today,  " +
+            "(SELECT ROUND(AVG(mood), 1) FROM reports WHERE date = current_date - INTEGER '1') as yesterday;"
     );
     return res.rowsOfObjects()[0];
 };

@@ -1,14 +1,34 @@
 <% if (!sd) { %>
-<div class="alert alert-warning" role="alert">
+<small class="text-muted" role="alert">
     no data for the given time-period
-</div>
+</small>
 <% } else { %>
-<div>
-    <p>Average sleep duration: <%= sd %></p>
-    <p>Average time spent on sports and exercise: <%= et %></p>
-    <p>Average time spent studying: <%= st %></p>
-    <p>Average sleep quality: <%= sq %></p>
-    <p>Average regularity and quality of eating: <%= eq %></p>
-    <p>Average generic mood: <%= md %></p>
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="row  py-2 d-flex align-items-center justify-content-between">
+            <p class="col-9 my-0 text-left">Sleep duration</p>
+            <h4 class="h4 col-3 my-0 font-weight-normal"><%= sd %></h4>
+        </div>
+        <div class="row  py-2 d-flex align-items-center justify-content-between">
+            <p class="col-9 my-0 text-left">Sports & exercise</p>
+            <h4 class="h4 col-3 my-0 font-weight-normal"><%= et %></h4>
+        </div>
+        <div class="row  py-2 d-flex align-items-center justify-content-between">
+            <p class="col-9 my-0 text-left">Studying</p>
+            <h4 class="h4 col-3 my-0 font-weight-normal"><%= st %></h4>
+        </div>
+        <div class="row  py-2 d-flex align-items-center justify-content-between">
+            <p class="col-9 my-0 text-left">Sleep Quality</p>
+            <h4 class="h4 col-3 my-0 font-weight-normal"><%= sq %></h4>
+        </div>
+        <div class="row  py-2 d-flex align-items-center justify-content-between">
+            <p class="col-9 my-0 text-left">Regularity & Quality of Eating</p>
+            <h4 class="h4 col-3 my-0 font-weight-normal"><%= eq %></h4>
+        </div>
+        <div class="row  py-2 d-flex align-items-center justify-content-between">
+            <p class="col-9 my-0 text-left">Generic Mood</p>
+            <h4 class="h4 col-3 my-0 font-weight-normal"><%= md %></h4>
+        </div>
+    </div>
 </div>
 <% } %>
