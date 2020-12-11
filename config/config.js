@@ -1,9 +1,9 @@
 let config = {};
 
-if (Deno.env.get("TEST_ENVIRONMENT")) {
-    config.database = {};
+if (Deno.env.get("DATABASE_URL")) {
+    config.database = Deno.env.get("DATABASE_URL");
 } else {
-    config.database = Deno.env.toObject().DATABASE_URL;
+    config.database = {};
 }
 
 export { config };
