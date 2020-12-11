@@ -5,7 +5,6 @@ import {
     numberBetween,
     isInt,
     isDate,
-    isFloat,
 } from "../../deps.js";
 
 const validationRulesMorning = {

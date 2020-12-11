@@ -6,7 +6,7 @@
         <div class="row justify-content-center">
             <%- include('./partials/notif.ejs', {notif: data.notif}) %>
         </div>
-        <p>Report daily activities and behavior. </p>
+        <p>Select morning or evening to report daily activities.</p>
         <div class="btn-group py-2">
             <a href="/behavior/reporting/morning" style="border-radius: 20px 0 0 20px;" class="btn btn-outline-secondary 
         <% if (data.type === 'morning'){ %> active <% } %>">Morning</a>

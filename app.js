@@ -33,4 +33,8 @@ if (Deno.args.length > 0) {
     port = Number(lastArgument);
 }
 
-app.listen({ port: port });
+if (!Deno.env.get("TEST_ENVIRONMENT")) {
+    app.listen({ port: port });
+}
+
+export { app };
