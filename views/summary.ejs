@@ -6,14 +6,14 @@
         <p>Averages of your daily activities</p>
     </div>
     <form class="row justify-content-center" method="POST" action="/behavior/summary">
-        <div class="weekly col-md-4 py-3 mx-4">
+        <div class="weekly col-sm-4 py-3 mx-4">
             <h4 class="h4 mb-3 font-weight-normal">Weekly Average</h4>
             <div class="pb-3">
                 <input type="week" name="week" id="" value="<%= data.week %>" onchange="this.form.submit()" />
             </div>
             <%- include('./partials/summaryList.ejs', data.weekly) %>
         </div>
-        <div class="monthly col-md-4 py-3 mx-4">
+        <div class="monthly col-sm-4 py-3 mx-4">
             <h4 class="h4 mb-3 font-weight-normal">Monthly Average</h4>
             <div class="pb-3">
                 <input type="month" name="month" id="" value="<%= data.month %>" onchange="this.form.submit()" />

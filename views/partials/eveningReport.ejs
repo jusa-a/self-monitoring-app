@@ -1,21 +1,21 @@
 <form method="POST" action="/behavior/reporting/evening">
     <div class="form-group form-inline py-1">
-        <label class="col-3 px-0 justify-content-start" for="dateInput">Date</label>
+        <label class="col-3 px-0 justify-content-start text-left" for="dateInput">Date</label>
         <input type="date" name="date" class="form-control ml-3 col-8" id="dateInput" value="<%= date %>" />
         <%- include('./error.ejs', { errors: errors, attribute: 'date'}) %>
     </div>
     <div class="form-group form-inline py-1">
-        <label class="col-6 px-0 justify-content-start" for="exerciseInput">Sports & Exercise</label>
+        <label class="col-6 px-0 justify-content-start text-left" for="exerciseInput">Sports & Exercise</label>
         <input type="number" name="exerciseTime" class="form-control mx-2 col-3" id="exerciseInput" step="0.1"
             placeholder="0.0" value="<%= exerciseTime %>" />
-        <small class="text-muted">in hours</small>
+        <small class="text-muted">hours</small>
         <%- include('./error.ejs', { errors: errors, attribute: 'exerciseTime'}) %>
     </div>
     <div class="form-group form-inline py-1">
-        <label class="col-6 px-0 justify-content-start" for="studyInput">Studying</label>
+        <label class="col-6 px-0 justify-content-start text-left" for="studyInput">Studying</label>
         <input type="number" name="studyTime" class="form-control mx-2 col-3" id="studyInput" step="0.1"
             placeholder="0.0" value="<%= studyTime %>" />
-        <small class="text-muted">in hours</small>
+        <small class="text-muted">hours</small>
         <%- include('./error.ejs', { errors: errors, attribute: 'studyTime'}) %>
     </div>
     <div class="form-group form-inline py-1">
