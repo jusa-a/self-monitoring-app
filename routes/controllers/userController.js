@@ -74,7 +74,7 @@ const showLoginForm = async ({ render }) => {
     render("login.ejs", { data: data });
 };
 
-const postLoginForm = async ({ request, render, response, session }) => {
+const postLoginForm = async ({ request, render, response, state: { session } }) => {
     const data = await getLoginData(request);
     const res = await userService.getUser(data.email);
     if (!res[0]) {
@@ -100,7 +100,7 @@ const postLoginForm = async ({ request, render, response, session }) => {
     response.redirect("/");
 };
 
-const logOut = async ({ session, response }) => {
+const logOut = async ({ state: { session }, response }) => {
     await session.set("authenticated", false);
     await session.set("user", {
         id: "",

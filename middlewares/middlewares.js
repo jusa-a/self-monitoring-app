@@ -11,7 +11,7 @@ const errorMiddleware = async (context, next) => {
 };
 
 // logs all request info
-const requestMiddleware = async ({ request, session }, next) => {
+const requestMiddleware = async ({ request, state: { session } }, next) => {
     const today = new Date();
     var date = today.toJSON().slice(0, 10);
     var time = today.toJSON().slice(11, 19);
@@ -38,7 +38,7 @@ const serveStaticFilesMiddleware = async (context, next) => {
 };
 
 // controls access to the application
-const authMiddleware = async ({ request, response, session }, next) => {
+const authMiddleware = async ({ request, response, state: { session } }, next) => {
     if (request.url.pathname.startsWith("/behavior")) {
         if (session && (await session.get("authenticated"))) {
             await next();

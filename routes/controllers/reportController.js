@@ -83,7 +83,7 @@ const getData = async (id, params, request) => {
     return data;
 };
 
-const showReportForm = async ({ params, render, response, session }) => {
+const showReportForm = async ({ params, render, response, state: { session } }) => {
     const logged = {
         loggedIn: await session.get("authenticated"),
         user: await session.get("user"),
@@ -98,7 +98,7 @@ const showReportForm = async ({ params, render, response, session }) => {
     render("reporting.ejs", { data: data, logged: logged });
 };
 
-const postReport = async ({ params, request, render, response, session }) => {
+const postReport = async ({ params, request, render, response, state: { session } }) => {
     const logged = {
         loggedIn: await session.get("authenticated"),
         user: await session.get("user"),

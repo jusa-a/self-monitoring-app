@@ -15,7 +15,7 @@ Deno.test({
                     pathname: "/behavior",
                 },
             },
-            session: { get: getAuthenticated },
+            state: { session: { get: getAuthenticated } },
         };
 
         const next = () => {};
@@ -63,7 +63,7 @@ Deno.test({
                     pathname: "/test",
                 },
             },
-            session: { get: getUser },
+            state: { session: { get: getUser } },
         };
 
         const next = () => {};

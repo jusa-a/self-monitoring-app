@@ -44,7 +44,7 @@ const getMonthlyAvg = async (month, year) => {
     return avg;
 };
 
-const showSummary = async ({ render, session }) => {
+const showSummary = async ({ render, state: { session } }) => {
     const logged = {
         loggedIn: await session.get("authenticated"),
         user: await session.get("user"),
@@ -54,7 +54,7 @@ const showSummary = async ({ render, session }) => {
     render("summary.ejs", { data: data, logged: logged });
 };
 
-const updateSummary = async ({ request, render, session }) => {
+const updateSummary = async ({ request, render, state: { session } }) => {
     const logged = {
         loggedIn: await session.get("authenticated"),
         user: await session.get("user"),
